@@ -1,9 +1,12 @@
 <div class="search-container">
+  <div class="image-wrapper">
+    <%= image_tag "homepage.png", alt: "Centered Image" %>
+  </div>
   <%= form_with url: "#", method: :get, local: true, class: "search-form" do |form| %>
     <div class="search-wrapper">
       <%= form.text_field :query, placeholder: "who inspires you?", class: "search-input" %>
       <button type="submit" class="search-button">
-        <img src="path/to/image.png" alt="Search">
+        <%= image_tag "magnify.png", alt: "Search" %>
       </button>
     </div>
   <% end %>
