@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bibliotech</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Bibliotech</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <%= link_to 'bibliotech', '#', class: 'navbar-link logo' %>
+      <%= link_to 'how it works', '#', class: 'navbar-link' %>
+      <div class="navbar-right">
+        <%= link_to 'login', '#', class: 'navbar-link login' %>
+        <%= link_to 'your library', '#', class: 'navbar-link library' %>
+      </div>
+    </nav>
+  </header>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= yield %>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
-  </body>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</body>
 </html>

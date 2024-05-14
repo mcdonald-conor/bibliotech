@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="search-container">
+  <%= form_with url: "#", method: :get, local: true do |form| %>
+    <%= form.text_field :query, placeholder: "who inspires you?", class: "search-input" %>
+    <%= form.submit "Search", class: "search-button" %>
+  <% end %>
+</div>
+ß
