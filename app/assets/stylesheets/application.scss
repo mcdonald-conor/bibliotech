@@ -10,3 +10,45 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// component specific css
+
+@import "searchbar";
+
+body {
+  height: 100%;
+  background-color: #f9e8e3;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: black;
+  margin-right: 20px; /* Adjust or reduce this if needed */
+  font-size: 16px;
+}
+
+.navbar-link.logo {
+  font-weight: bold;
+  margin-right: 10px; /* Reduce margin if they are still too far apart */
+}
+
+.navbar-link.login {
+  text-decoration: underline;
+}
+
+.navbar-link.library {
+  padding: 5px 10px;
+  border: 2px solid black;
+  text-decoration: none;
+}
