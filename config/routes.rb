@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
   get 'how_it_works', to: 'pages#how_it_works'
   get 'library', to: 'pages#library'
+  get 'search_books', to: 'books#search'
+  resources :books, only: [:index, :create]
 end

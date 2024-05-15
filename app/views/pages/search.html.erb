@@ -1,0 +1,18 @@
+<h1>Search Results</h1>
+<% if @books.any? %>
+  <ul>
+    <% @books.each do |book| %>
+      <li>
+        <strong>Title:</strong> <%= book['title'] %><br>
+        <strong>Author:</strong> <%= book['author'] %><br>
+        <%= form_with url: books_path, method: :post, local: true do %>
+          <%= hidden_field_tag :title, book['title'] %>
+          <%= hidden_field_tag :author, book['author'] %>
+          <%= submit_tag "Save to Library" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No books found.</p>
+<% end %>

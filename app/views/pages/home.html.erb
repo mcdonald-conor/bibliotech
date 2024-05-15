@@ -2,9 +2,9 @@
   <div class="image-wrapper">
     <%= image_tag "homepage.png", alt: "Centered Image" %>
   </div>
-  <%= form_with url: "#", method: :get, local: true, class: "search-form" do |form| %>
+  <%= form_with url: search_books_path, method: :get, local: true, class: "search-form" do |form| %>
     <div class="search-wrapper">
-      <%= form.text_field :query, placeholder: "who inspires you?", class: "search-input" %>
+      <%= text_field_tag :query, placeholder: "who inspires you?", class: "search-input" %>
       <button type="submit" class="search-button">
         <%= image_tag "magnify.png", alt: "Search" %>
       </button>
