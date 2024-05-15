@@ -1,0 +1,29 @@
+/* app/assets/stylesheets/application.css */
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 60%; /* Adjust this width as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px 0; /* Add vertical spacing between cards */
+}
+
+.card strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card form {
+  margin-top: 10px;
+}
