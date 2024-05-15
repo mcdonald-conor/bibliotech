@@ -1,8 +1,10 @@
+<!-- app/views/books/search.html.erb -->
 <h1>Search Results</h1>
+
 <% if @books.any? %>
-  <ul>
+  <div class="cards-container">
     <% @books.each do |book| %>
-      <li>
+      <div class="card">
         <strong>Title:</strong> <%= book['title'] %><br>
         <strong>Author:</strong> <%= book['author'] %><br>
         <%= form_with url: books_path, method: :post, local: true do %>
@@ -10,9 +12,9 @@
           <%= hidden_field_tag :author, book['author'] %>
           <%= submit_tag "Save to Library" %>
         <% end %>
-      </li>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   <p>No books found.</p>
 <% end %>
