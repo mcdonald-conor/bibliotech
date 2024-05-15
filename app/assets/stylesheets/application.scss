@@ -11,6 +11,7 @@
 @import "components/index";
 @import "pages/index";
 
+
 // component specific css
 
 @import "searchbar";
@@ -51,4 +52,9 @@ body {
   padding: 5px 10px;
   border: 2px solid black;
   text-decoration: none;
+}
+
+.btn-primary {
+  background-color: $pink;
+  border-color: white
 }
