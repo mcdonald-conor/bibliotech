@@ -4,7 +4,7 @@
   </div>
   <%= form_with url: search_books_path, method: :get, local: true, class: "search-form" do |form| %>
     <div class="search-wrapper">
-      <%= text_field_tag :query, nil, placeholder: "Who inspires you?", class: "search-input" %>
+      <%= text_field_tag :query, nil, placeholder: "enter the name of your favourite figure to find what inspired them", class: "search-input" %>
       <button type="submit" class="search-button">
         <%= image_tag "magnify.png", alt: "Search" %>
       </button>
