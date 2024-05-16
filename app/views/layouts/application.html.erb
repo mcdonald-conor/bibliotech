@@ -6,6 +6,7 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_importmap_tags %>
+  <%= javascript_include_tag 'scrollToTop', 'data-turbolinks-track': 'reload' %> <!-- Ensure this line is added -->
 </head>
 <body>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
@@ -47,18 +48,18 @@
 
   <%= yield %>
   <div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+    <div class="footer-copyright">
+      <%= link_to 'bibliotech', root_path, class: 'navbar-link logo' %>
+    </div>
   </div>
-  <div class="footer-copyright">
-    <%= link_to 'bibliotech', root_path, class: 'navbar-link logo' %>
-  </div>
-</div>
-  <button click="topFunction()" id="myBtn" title="Go to top">
-      <i class="fa-solid fa-arrow-up"></i>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
   </button>
 </body>
 </html>
