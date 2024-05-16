@@ -2,10 +2,10 @@
 <div class="container" style="padding:100px;">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4" >
-      <h2 style="font-family: Playfair Display, serif;">Log in</h2>
+      <h2 style="font-family: Noto Serif, serif";>Log in</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs" style="font-family: Playfair Display, serif;">
+        <div class="form-inputs" style="font-family: Noto Serif, serif;">
           <%= f.input :email,
                       required: false,
                       autofocus: true,
@@ -16,7 +16,7 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
 
-        <div class="form-actions" style="font-family: Playfair Display, serif;">
+        <div class="form-actions" style="font-family: Noto Serif, serif;">
           <%= f.button :submit, "Log in", class: "btn btn-primary"%>
           <%= render "devise/shared/links" %>
         </div>

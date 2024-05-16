@@ -10,12 +10,14 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/banner";
 
 
 // component specific css
 
 @import "searchbar";
 @import "searchresults";
+
 body {
   height: 100%;
   background-color: #f9e8e3;
@@ -57,4 +59,42 @@ body {
 .btn-primary {
   background-color: $pink;
   border-color: white
+}
+
+.footer {
+  background: #f9e8e3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  color:#F674B4;
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 80px; /* Place the button at the bottom of the page */
+  right: 60px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #F674B4;
+  color: white; /* Text color */
+  cursor: pointer; 
+  padding: 15px; 
+  border-radius: 5px;
 }

@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
-      <h2 style="font-family: Playfair Display, serif;">Resend unlock instructions</h2>
+      <h2 style="font-family:  Noto Serif, serif;">Resend unlock instructions</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
         <%= f.full_error :unlock_token %>
 
-        <div class="form-inputs" style="font-family: Playfair Display, serif;">
+        <div class="form-inputs" style="font-family:  Noto Serif, serif;">
           <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" } %>
         </div>
 
-        <div class="form-actions" style="font-family: Playfair Display, serif;">
+        <div class="form-actions" style="font-family:  Noto Serif, serif;">
           <%= f.button :submit, "Resend unlock instructions" %>
           <%= render "devise/shared/links" %>
         </div>

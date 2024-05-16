@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
-      <h2 style="font-family: Playfair Display, serif;">Forgot your password?</h2>
+      <h2 style="font-family: Noto Serif, serif;">Forgot your password?</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs" style="font-family: Playfair Display, serif;">
+        <div class="form-inputs" style="font-family: Noto Serif, serif;">
           <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "email" } %>
         </div>
 
-        <div class="form-actions" style="font-family: Playfair Display, serif;">
+        <div class="form-actions" style="font-family: Noto Serif, serif;">
           <%= f.button :submit, "Send me reset password instructions", class:"btn btn-primary" %>
 
           <%= render "devise/shared/links" %>

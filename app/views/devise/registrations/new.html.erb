@@ -2,12 +2,12 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
-      <h2 style="font-family: Playfair Display, serif;">Sign up</h2>
+      <h2 style="font-family:  Noto Serif, serif;">Sign up</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs" style="font-family: Playfair Display, serif;">
+        <div class="form-inputs" style="font-family:  Noto Serif, serif;">
           <%= f.input :email,
                       required: true,
                       autofocus: true,
@@ -23,7 +23,7 @@
           <%= f.input :bio, required: true %>
         </div>
 
-        <div class="form-actions" style="font-family: Playfair Display, serif;">
+        <div class="form-actions" style="font-family:  Noto Serif, serif;">
           <%= f.button :submit, "Sign up", class:"btn btn-primary" %>
           <%= render "devise/shared/links" %>
         </div>
