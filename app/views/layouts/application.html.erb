@@ -21,58 +21,30 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto"  style="padding-right:10px">
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-            </li>
-            <li class="nav-item dropdown">
-              <%= image_tag "https://static-00.iconduck.com/assets.00/user-avatar-2-icon-256x255-dc62jobf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="navbar-right">
+          <ul class="navbar-nav me-auto" style="padding-right:10px">
+            <% if user_signed_in? %>
+              <li class="nav-item active">
+              </li>
+              <li class="nav-item dropdown">
+                <%= image_tag "https://static-00.iconduck.com/assets.00/user-avatar-2-icon-256x255-dc62jobf.png", class: "avatar-square", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "Profile", "#", class: "dropdown-item" %>
-                  <%= link_to "Log out",  destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
                 </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+          <%= link_to 'your library', library_path, class: 'navbar-link library' %>
+        </div>
       </div>
-      <%= link_to 'your library', library_path, class: 'navbar-link library' %>
     </div>
   </div>
 
-
-  <!-- <header>
-    <nav class="navbar">
-      <div class="navbar-left">
-        <%= link_to 'bibliotech', root_path, class: 'navbar-link logo' %>
-        <%= link_to 'how it works', how_it_works_path, class: 'navbar-link' %>
-      </div>
-      <div class="navbar-right">
-        <div style="margin-right:10px">
-          <% if user_signed_in? %>
-            <li class="nav-item dropdown", style="list-style-type:none">
-            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag "https://inceptum.s3.us-east-1.amazonaws.com/O73LU2odqyKc/ph_user-circle-fill%202.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA3HNMG24SATQ2TORO%2F20240515%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240515T150858Z&X-Amz-Expires=345600&X-Amz-Signature=2bdd46b4886922f38c0b8047dcdbd26b390c887c6016318e5ec0aa7099b6ae0e&X-Amz-SignedHeaders=host&x-id=GetObject",class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            </a>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Action", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </div>
-        <%= link_to 'your library', library_path, class: 'navbar-link library' %>
-      </div>
-    </nav>
-  </header> -->
   <%= yield %>
   <div class="footer">
   <div class="footer-links">

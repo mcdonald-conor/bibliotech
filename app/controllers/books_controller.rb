@@ -17,7 +17,7 @@ class BooksController < ApplicationController
           model: "gpt-3.5-turbo",
           messages: [
             { role: "system", content: "You are a helpful assistant. Do not reply to my message other than with the answer to my question." },
-            { role: "user", content: "Can you provide me with a list of 5 books about #{query} in a JSON format? Each book should include the title, author, a small description, and the source where the book was mentioned. Ensure the response is a valid JSON array with objects containing these fields: title, author, description, and source." }
+            { role: "user", content: "Provide me with 5 books that shaped the worldview of #{query} in a JSON format? Each book should include the title, author, a small description, and a source attribute - providing the context in which they mentioned it. Ensure the response is a valid JSON array with objects containing these fields: title, author, description, and source." }
           ]
         }
       )
