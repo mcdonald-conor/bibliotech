@@ -85,20 +85,6 @@ body {
   color:#F674B4;
 }
 
-#myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 80px; /* Place the button at the bottom of the page */
-  right: 60px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: #F674B4;
-  color: white; /* Text color */
-  cursor: pointer; 
-  padding: 15px; 
-  border-radius: 5px;
-
 .results-button {
   background-color: #F2CECE; /* Fill color */
   border: none; /* Remove default border */
@@ -114,4 +100,11 @@ body {
 .results-button:hover {
   background-color: #e6bebe; /* Slightly darker fill color on hover */
 }
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 60px;
+  display: none;
+  border-color: #F674B4;
 }
