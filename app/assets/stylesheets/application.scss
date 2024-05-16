@@ -18,7 +18,7 @@
 @import "searchresults";
 body {
   height: 100%;
-  background-color: #f9e8e3;
+  background-color: #FBEBD9;
 }
 .navbar {
   display: flex;
@@ -57,4 +57,20 @@ body {
 .btn-primary {
   background-color: $pink;
   border-color: white
+}
+
+.results-button {
+  background-color: #F2CECE; /* Fill color */
+  border: none; /* Remove default border */
+  border-radius: 5%; /* Border radius */
+  padding: 10px 20px; /* Padding for button */
+  color: black; /* Text color */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin: 5px; /* Margin between buttons */
+  display: inline-block; /* Display as inline-block */
+}
+
+.results-button:hover {
+  background-color: #e6bebe; /* Slightly darker fill color on hover */
 }

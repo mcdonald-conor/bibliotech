@@ -4,15 +4,24 @@
 <% if @books.any? %>
   <div class="cards-container">
     <% @books.each do |book| %>
-      <div class="card">
-        <strong>Title:</strong> <%= book['title'] %><br>
-        <strong>Author:</strong> <%= book['author'] %><br>
-        <%= form_with url: books_path, method: :post, local: true do %>
-          <%= hidden_field_tag :title, book['title'] %>
-          <%= hidden_field_tag :author, book['author'] %>
-          <%= submit_tag "Save to Library" %>
-        <% end %>
-      </div>
+      <% if book.is_a?(Hash) %>
+        <div class="card">
+          <strong>Title:</strong> <%= book['title'] %><br>
+          <strong>Author:</strong> <%= book['author'] %><br>
+          <strong>Description:</strong> <%= book['description'] %><br>
+          <strong>Source:</strong> <%= book['source'] %><br>
+          <%= form_with url: books_path, method: :post, local: true do %>
+            <%= hidden_field_tag :title, book['title'] %>
+            <%= hidden_field_tag :author, book['author'] %>
+            <%= hidden_field_tag :description, book['description'] %>
+            <%= hidden_field_tag :source, book['source'] %>
+            <%= submit_tag "Save to Library", class: "results-button" %>
+            <%= submit_tag "Purchase", class: "results-button" %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>Invalid book data: <%= book.inspect %></p>
+      <% end %>
     <% end %>
   </div>
 <% else %>
