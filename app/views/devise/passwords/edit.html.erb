@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
 
-      <h2 style="font-family: Playfair Display, serif;">Change your password</h2>
+      <h2 style="font-family: Noto Serif, serif;">Change your password</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
@@ -10,7 +10,7 @@
         <%= f.input :reset_password_token, as: :hidden %>
         <%= f.full_error :reset_password_token %>
 
-        <div class="form-inputs" style="font-family: Playfair Display, serif;">
+        <div class="form-inputs" style="font-family: Noto Serif, serif;">
           <%= f.input :password,
                       label: "New password",
                       required: true,
@@ -23,7 +23,7 @@
                       input_html: { autocomplete: "new-password" } %>
         </div>
 
-        <div class="form-actions" style="font-family: Playfair Display, serif;">
+        <div class="form-actions" style="font-family: Noto Serif, serif;">
           <%= f.button :submit, "Change my password", class:"btn btn-primary" %>
           <%= render "devise/shared/links" %>
         </div>

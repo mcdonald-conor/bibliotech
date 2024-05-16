@@ -11,8 +11,9 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
       <div class="navbar-left">
-        <%= link_to 'bibliotech', root_path, class: 'navbar-link logo' %>
-        <%= link_to 'how it works', how_it_works_path, class: 'navbar-link' %>
+        <%= link_to 'bibliotech', root_path, class: 'navbar-link logo', id:"top" %>
+        <a href="#how" class="navbar-link">how it works</a>
+        <a href="#about" class="navbar-link">about us</a>
       </div>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,5 +74,19 @@
     </nav>
   </header> -->
   <%= yield %>
+  <div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    <%= link_to 'bibliotech', root_path, class: 'navbar-link logo' %>
+  </div>
+</div>
+  <button click="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+  </button>
 </body>
 </html>
