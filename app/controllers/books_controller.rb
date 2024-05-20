@@ -1,5 +1,7 @@
 # app/controllers/books_controller.rb
 require "openai"
+require "net/http"
+require "json"
 
 class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:search]
@@ -14,23 +16,33 @@ class BooksController < ApplicationController
     begin
       response = client.chat(
         parameters: {
-          model: "gpt-3.5-turbo",
+          model: "gpt-4o",
           messages: [
-            { role: "system", content: "You are a helpful assistant. Do not reply to my message other than with the answer to my question." },
-            { role: "user", content: "Provide me with 5 books that shaped the worldview of #{query} in a JSON format? Each book should include the title, author, a small description, and a source attribute - providing the context in which they mentioned it. Ensure the response is a valid JSON array with objects containing these fields: title, author, description, and source." }
+            { role: "system", content: "You are a helpful assistant. Please respond only with a valid JSON array and no other text." },
+            { role: "user", content: "Provide me with 5 books that shaped the worldview of #{query} in a JSON format. Each book should include the title, author, a small description, a source attribute providing the context in which they mentioned it, and an ISBN. Ensure the response is a valid JSON array with objects containing these fields: title, author, description, source, and ISBN." }
           ]
         }
       )
       Rails.logger.info("OpenAI API response: #{response.inspect}")
-      response_text = response.dig('choices', 0, 'message', 'content')
+      response_text = response.dig('choices', 0, 'message', 'content').strip
+
+      # Ensure the response starts and ends with JSON array brackets
+      response_text = response_text[response_text.index('[')..response_text.rindex(']')+1]
+
       @books = JSON.parse(response_text)
       Rails.logger.info("Parsed books: #{@books.inspect}")
 
-      # Validate and filter the response
+      # Validate the response and fetch cover URLs
       @books = @books.select do |book|
-        book.is_a?(Hash) && book.key?('title') && book.key?('author') && book.key?('description') && book.key?('source')
+        book.is_a?(Hash) && book.key?('title') && book.key?('author') && book.key?('description') && book.key?('source') && book.key?('ISBN')
       end
-      Rails.logger.info("Validated books: #{@books.inspect}")
+
+      # Fetch book covers from OpenLibrary API
+      @books.each do |book|
+        book['cover_url'] = fetch_cover_url(book['ISBN'])
+      end
+
+      Rails.logger.info("Books with cover URLs: #{@books.inspect}")
 
     rescue JSON::ParserError => e
       Rails.logger.error("JSON parsing error: #{e.message}")
@@ -57,6 +69,12 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :description, :source)
+    params.require(:book).permit(:title, :author, :description, :source, :ISBN)
+  end
+
+  def fetch_cover_url(isbn)
+    url = URI("https://covers.openlibrary.org/b/isbn/#{isbn}-M.jpg")
+    response = Net::HTTP.get_response(url)
+    response.code == "200" ? url.to_s : nil
   end
 end
