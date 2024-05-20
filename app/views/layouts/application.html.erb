@@ -8,6 +8,9 @@
   <%= javascript_importmap_tags %>
 </head>
 <body>
+<button type="button" data-controller="scroller" data-action="click->scroller#backToTop" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top" style="background:#F674B4; color:white;">
+  <i class="fas fa-arrow-up"></i>
+</button>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
       <div class="navbar-left">
@@ -45,8 +48,8 @@
     </div>
   </div>
 
-  <%= yield %>
-  <div class="footer">
+<%= yield %>
+<div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-facebook"></i></a>
@@ -57,13 +60,5 @@
     <%= link_to 'bibliotech', root_path, class: 'navbar-link logo' %>
   </div>
 </div>
-  <button
-        type="button"
-        class="btn btn-danger btn-floating btn-lg"
-        id="btn-back-to-top"
-        style="background:#F674B4; color:white;"
-        >
-  <i class="fas fa-arrow-up"></i>
-</button>
 </body>
 </html>
