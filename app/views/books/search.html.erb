@@ -1,4 +1,3 @@
-<!-- app/views/books/search.html.erb -->
 <h1 style="text-align: center; font-size: 16px;"><strong>Your Reading List</strong></h1>
 
 <% if @books.any? %>
@@ -13,14 +12,14 @@
           <strong>Author:</strong> <%= book['author'] %><br>
           <strong>Description:</strong> <%= book['description'] %><br>
           <strong>Source:</strong> <%= book['source'] %><br>
-          <%= form_with url: books_path, method: :post, local: true do %>
-            <%= hidden_field_tag :title, book['title'] %>
-            <%= hidden_field_tag :author, book['author'] %>
-            <%= hidden_field_tag :description, book['description'] %>
-            <%= hidden_field_tag :source, book['source'] %>
-            <%= hidden_field_tag :ISBN, book['ISBN'] %>
+          <strong>ISBN:</strong> <%= book['isbn'] %><br>
+          <%= form_with url: save_books_path, method: :post, local: true do %>
+            <%= hidden_field_tag 'book[title]', book['title'] %>
+            <%= hidden_field_tag 'book[author]', book['author'] %>
+            <%= hidden_field_tag 'book[description]', book['description'] %>
+            <%= hidden_field_tag 'book[source]', book['source'] %>
+            <%= hidden_field_tag 'book[isbn]', book['isbn'] %>
             <%= submit_tag "Save to Library", class: "results-button" %>
-            <%= submit_tag "Purchase", class: "results-button" %>
           <% end %>
         </div>
       <% else %>
