@@ -6,6 +6,9 @@
     <% @books.each do |book| %>
       <% if book.is_a?(Hash) %>
         <div class="card">
+          <% if book['cover_url'] %>
+            <img src="<%= book['cover_url'] %>" alt="Book cover" style="width:100px;height:150px;"><br>
+          <% end %>
           <strong>Title:</strong> <%= book['title'] %><br>
           <strong>Author:</strong> <%= book['author'] %><br>
           <strong>Description:</strong> <%= book['description'] %><br>
@@ -15,6 +18,7 @@
             <%= hidden_field_tag :author, book['author'] %>
             <%= hidden_field_tag :description, book['description'] %>
             <%= hidden_field_tag :source, book['source'] %>
+            <%= hidden_field_tag :ISBN, book['ISBN'] %>
             <%= submit_tag "Save to Library", class: "results-button" %>
             <%= submit_tag "Purchase", class: "results-button" %>
           <% end %>
