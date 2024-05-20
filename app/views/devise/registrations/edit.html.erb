@@ -8,6 +8,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs" style="font-family:  Noto Serif  Noto Serif, serif;">
+          <%= f.input :username, required: true, uniqueness: true %>
           <%= f.input :email, required: true, autofocus: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -25,6 +26,9 @@
                       hint: "we need your current password to confirm your changes",
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
+          <%= f.input :bio, required: true %>
+          <%= f.input :avatar, as: :file, required: true %>
+
         </div>
 
         <div class="form-actions" style="font-family:  Noto Serif, serif;">
