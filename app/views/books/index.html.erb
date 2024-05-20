@@ -1,0 +1,20 @@
+<h1 style="text-align: center; font-size: 16px;"><strong>Your Library</strong></h1>
+
+<% if @books.any? %>
+  <div class="cards-container">
+    <% @books.each do |book| %>
+      <div class="card">
+        <% if book.cover_url %>
+          <img src="<%= book.cover_url %>" alt="Book cover" style="width:100px;height:150px;"><br>
+        <% end %>
+        <strong>Title:</strong> <%= book.title %><br>
+        <strong>Author:</strong> <%= book.author %><br>
+        <strong>Description:</strong> <%= book.description %><br>
+        <strong>Source:</strong> <%= book.source %><br>
+        <strong>ISBN:</strong> <%= book.isbn %><br>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No books found in your library.</p>
+<% end %>
