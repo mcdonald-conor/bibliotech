@@ -30,9 +30,9 @@
               <li class="nav-item active">
               </li>
               <li class="nav-item dropdown">
-                <%= image_tag "https://static-00.iconduck.com/assets.00/user-avatar-2-icon-256x255-dc62jobf.png", class: "avatar-square", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= cl_image_tag current_user.avatar.key, class: "avatar-square", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Profile", "#", class: "dropdown-item" %>
+                  <%= link_to "Account",  edit_user_registration_path, class: "dropdown-item" %>
                   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
                 </div>
               </li>

@@ -8,6 +8,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs" style="font-family:  Noto Serif, serif;">
+          <%= f.input :username, required: true, uniqueness: true %>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
@@ -19,8 +20,8 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
-          <%= f.input :username, required: true %>
           <%= f.input :bio, required: true %>
+          <%= f.input :avatar, as: :file, required: true %>
         </div>
 
         <div class="form-actions" style="font-family:  Noto Serif, serif;">

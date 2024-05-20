@@ -53,6 +53,7 @@ gem "sassc-rails"
 gem "faker"
 gem "ruby-openai"
 gem "openai"
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"
