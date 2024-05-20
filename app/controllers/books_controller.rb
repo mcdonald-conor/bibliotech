@@ -1,10 +1,8 @@
-# app/controllers/books_controller.rb
 require "openai"
 require "net/http"
-require "json"
 
 class BooksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:search]
+  before_action :authenticate_user!, only: [:save]
 
   def search
     query = params[:query]
@@ -19,7 +17,7 @@ class BooksController < ApplicationController
           model: "gpt-4o",
           messages: [
             { role: "system", content: "You are a helpful assistant. Please respond only with a valid JSON array and no other text." },
-            { role: "user", content: "Provide me with 5 books that shaped the worldview of #{query} in a JSON format. Each book should include the title, author, a small description, a source attribute providing the context in which they mentioned it, and an ISBN. Ensure the response is a valid JSON array with objects containing these fields: title, author, description, source, and ISBN." }
+            { role: "user", content: "Provide me with 5 books that shaped the worldview of #{query} in a JSON format. Each book should include the title, author, a small description, a source attribute providing the context in which they mentioned it, and an isbn. Ensure the response is a valid JSON array with objects containing these fields: title, author, description, source, and isbn." }
           ]
         }
       )
@@ -34,12 +32,12 @@ class BooksController < ApplicationController
 
       # Validate the response and fetch cover URLs
       @books = @books.select do |book|
-        book.is_a?(Hash) && book.key?('title') && book.key?('author') && book.key?('description') && book.key?('source') && book.key?('ISBN')
+        book.is_a?(Hash) && book.key?('title') && book.key?('author') && book.key?('description') && book.key?('source') && book.key?('isbn')
       end
 
       # Fetch book covers from OpenLibrary API
       @books.each do |book|
-        book['cover_url'] = fetch_cover_url(book['ISBN'])
+        book['cover_url'] = fetch_cover_url(book['isbn'])
       end
 
       Rails.logger.info("Books with cover URLs: #{@books.inspect}")
@@ -53,8 +51,10 @@ class BooksController < ApplicationController
     end
   end
 
-  def create
-    book = Book.new(book_params)
+  def save
+    book_params = params.require(:book).permit(:title, :author, :description, :source, :isbn)
+    book = current_user.books.build(book_params)
+
     if book.save
       redirect_to books_path, notice: 'Book was successfully saved to your library.'
     else
@@ -63,18 +63,14 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = current_user.books
   end
 
   private
 
-  def book_params
-    params.require(:book).permit(:title, :author, :description, :source, :ISBN)
-  end
-
   def fetch_cover_url(isbn)
-    url = URI("https://covers.openlibrary.org/b/isbn/#{isbn}-M.jpg")
+    url = URI("https://covers.openlibrary.org/b/isbn/#{isbn}-L.jpg")
     response = Net::HTTP.get_response(url)
-    response.code == "200" ? url.to_s : nil
+    response.code == "200" && response.body.length > 0 ? url.to_s : "path/to/default/cover.jpg"
   end
 end
