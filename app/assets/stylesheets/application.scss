@@ -108,3 +108,57 @@ body {
   border-color: #F674B4;
   box-shadow: 6px 6px #7BAEED, 12px 12px #FFCB56;
 }
+
+/* Add this CSS to your stylesheets (e.g., app/assets/stylesheets/application.css) */
+.library-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px; /* Add padding to the container */
+}
+
+.library-card {
+  border: 2px solid black;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.library-card-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.book-cover {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.book-info {
+  flex-grow: 1;
+}
+
+.title-author {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-weight: bold;
+}
+
+.book-author {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.book-details {
+  margin-top: 10px;
+}
+
+.book-details strong {
+  display: block;
+  margin-top: 5px;
+}
