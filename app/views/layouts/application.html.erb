@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bibliotech</title>
+  <title>Bibliotech - Next-Gen Reading Lists</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <%= favicon_link_tag %>
+   <title><%= meta_title %></title>
+ <meta name="description" content="<%= meta_description %>">
+<meta property="og:title" content="<%= meta_title %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:image" content="<%= meta_image %>" />
+<meta property="og:description" content="<%= meta_description %>" />
+<meta property="og:site_name" content="<%= meta_title %>" />
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_importmap_tags %>
 </head>
