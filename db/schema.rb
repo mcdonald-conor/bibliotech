@@ -40,16 +40,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_160153) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-ActiveRecord::Schema[7.1].define(version: 2024_05_20_154735) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  end
 
   create_table "books", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "category"
     t.text "description"
     t.string "source"
-    t.bigint "collection_id"
+    t.bigint "collection_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
