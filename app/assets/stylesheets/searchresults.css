@@ -1,29 +1,70 @@
-/* app/assets/stylesheets/application.css */
-
-.cards-container {
+/* Add this CSS to your stylesheets (e.g., app/assets/stylesheets/application.css) */
+.library-container-vertical {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 20px;
-  padding: 20px;
+  padding: 20px; /* Add padding to the container */
 }
 
-.card {
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  width: 60%; /* Adjust this width as needed */
+.library-card-vertical {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin: 10px 0; /* Add vertical spacing between cards */
+  width: 100%; /* Make the card full width */
 }
 
-.card strong {
-  display: block;
-  margin-bottom: 10px;
+.library-card-content-vertical {
+  display: flex;
+  flex-grow: 1; /* Ensure the content takes up the remaining space */
 }
 
-.card form {
+.book-cover-vertical {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.book-info-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push the button to the bottom */
+  flex-grow: 1;
+}
+
+.title-author-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title-vertical {
+  font-weight: bold;
+}
+
+.book-author-vertical {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.book-details-vertical {
   margin-top: 10px;
+}
+
+.book-details-vertical strong {
+  display: block;
+  margin-top: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; /* Align the button to the bottom right */
+  margin-top: 10px;
+}
+
+.results-button {
+  align-self: flex-end; /* Align the button to the bottom right */
 }
