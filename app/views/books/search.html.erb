@@ -4,22 +4,23 @@
   <div class="cards-container">
     <% @books.each do |book| %>
       <% if book.is_a?(Hash) %>
-        <div class="card">
+        <div data-controller="books" data-books-url-value="<%= books_url %>" class="card" data-target="books.card">
           <% if book['cover_url'] %>
-            <img src="<%= book['cover_url'] %>" alt="Book cover" style="width:100px;height:150px;"><br>
+            <img src="<%= book['cover_url'] %>" alt="Book cover" style="width:100px;height:150px;" data-target="books.cover"><br>
           <% end %>
-          <strong>Title:</strong> <%= book['title'] %><br>
-          <strong>Author:</strong> <%= book['author'] %><br>
-          <strong>Description:</strong> <%= book['description'] %><br>
-          <strong>Source:</strong> <%= book['source'] %><br>
-          <strong>ISBN:</strong> <%= book['isbn'] %><br>
-          <%= form_with url: save_books_path, method: :post, local: true do %>
-            <%= hidden_field_tag 'book[title]', book['title'] %>
-            <%= hidden_field_tag 'book[author]', book['author'] %>
-            <%= hidden_field_tag 'book[description]', book['description'] %>
-            <%= hidden_field_tag 'book[source]', book['source'] %>
-            <%= hidden_field_tag 'book[isbn]', book['isbn'] %>
-            <%= submit_tag "Save to Library", class: "results-button" %>
+          <strong>Title:</strong> <span data-target="books.title"><%= book['title'] %></span><br>
+          <strong>Author:</strong> <span data-target="books.author"><%= book['author'] %></span><br>
+          <strong>Description:</strong> <span data-target="books.description"><%= book['description'] %></span><br>
+          <strong>Source:</strong> <span data-target="books.source"><%= book['source'] %></span><br>
+          <strong>ISBN:</strong> <span data-target="books.isbn"><%= book['isbn'] %></span><br>
+          <%= form_with model: Book.new, url: books_path, data: { action: "submit->books#add", 'books-target': "form" } do |f| %>
+            <%= f.hidden_field :title, value: book['title'] %>
+            <%= f.hidden_field :author, value: book['author'] %>
+            <%= f.hidden_field :description, value: book['description'] %>
+            <%= f.hidden_field :source, value: book['source'] %>
+            <%= f.hidden_field :isbn, value: book['isbn'] %>
+
+            <%= f.submit "Save to Library", class: "results-button", data: { 'books-target': 'button' } %>
           <% end %>
         </div>
       <% else %>

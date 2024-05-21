@@ -3,10 +3,15 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import "@hotwired/stimulus"
 
-import ScrollerController from "./controllers/scroller_controller.js"
+// // Import Stimulus and Stimulus-Loading
+// import { Application } from "@hotwired/stimulus"
+// import { definitionsFromContext } from "@hotwired/stimulus-loading"
 
-window.Stimulus = Application.start();
+// window.Stimulus = Application.start()
+// const context = require.context("controllers", true, /\.js$/)
+// Stimulus.load(definitionsFromContext(context))
 
-Stimulus.register("scroller", ScrollerController);
+// // Optionally register additional controllers
+// import ScrollerController from "./controllers/scroller_controller.js"
+// Stimulus.register("scroller", ScrollerController)
