@@ -2,7 +2,8 @@ require "openai"
 require "net/http"
 
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:save]
+  # before_action :authenticate_user!, only: [:save]
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   def search
     query = params[:query]
@@ -51,14 +52,17 @@ class BooksController < ApplicationController
     end
   end
 
-  def save
-    book_params = params.require(:book).permit(:title, :author, :description, :source, :isbn)
+  def create
     book = current_user.books.build(book_params)
 
-    if book.save
-      redirect_to books_path, notice: 'Book was successfully saved to your library.'
-    else
-      redirect_to search_books_path, alert: 'Failed to save the book.'
+    respond_to do |format|
+      if book.save
+        # redirect_to books_path, notice: 'Book was successfully saved to your library.'
+        format.js { render json: { status: :ok } }
+      else
+        # redirect_to search_books_path, alert: 'Failed to save the book.'
+        format.js { render json: { status: 500 } }
+      end
     end
   end
 
@@ -67,6 +71,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def book_params
+    params.require(:book).permit(:title, :author, :description, :source, :isbn)
+  end
 
   def fetch_cover_url(isbn)
     url = URI("https://covers.openlibrary.org/b/isbn/#{isbn}-L.jpg")
