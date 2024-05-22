@@ -14,9 +14,8 @@
                   <span class="book-author-vertical" data-target="books.author">by <%= book['author'] %></span>
                 </div>
                 <div class="book-details-vertical">
-                  <strong>Description:</strong> <span data-target="books.description"><%= book['description'] %></span><br>
-                  <strong>Source:</strong> <span data-target="books.source"><%= book['source'] %></span><br>
-                  <strong>ISBN:</strong> <span data-target="books.isbn"><%= book['isbn'] %></span><br>
+                  <span data-target="books.description"><%= book['description'] %></span><br>
+                  <strong>Where did we find this recommendation?</strong> <span data-target="books.source"><%= book['source'] %></span><br>
                 </div>
                 <%= form_with model: Book.new, url: books_path, data: { action: "submit->books#add", 'books-target': "form" } do |f| %>
                   <div class="button-container">
