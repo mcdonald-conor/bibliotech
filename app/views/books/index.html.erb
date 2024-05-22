@@ -1,17 +1,23 @@
-<h1 style="text-align: center; font-size: 16px;"><strong>Your Library</strong></h1>
+   <h1 style="text-align: center; font-size: 16px;"><strong>Your Library</strong></h1>
 
-<% if @books.any? %>
-  <div class="library-container">
-    <% @books.each do |book| %>
-      <div class="library-card">
-        <% if book.cover_url %>
-          <div class="library-card-content">
-            <img src="<%= book.cover_url %>" alt="Book cover" class="book-cover">
-            <div class="book-info">
-              <div class="title-author">
-                <span class="book-title"><%= book.title %></span>
-                <span class="book-author">by <%= book.author %></span>
-              </div>
+    <% if @books.any? %>
+      <div class="library-container">
+        <% @books.each do |book| %>
+          <div class="library-card">
+            <% if book.cover_url %>
+              <div class="library-card-content">
+                <img src="<%= book.cover_url %>" alt="Book cover" class="book-cover">
+                <div class="book-info">
+                  <div class="title-author">
+                    <span class="book-title"><%= book.title %></span>
+                    <span class="book-author">by <%= book.author %></span>
+                  </div>
+                  <div class="book-details">
+                    <strong>Description:</strong> <%= book.description %><br>
+                    <strong>Source:</strong> <%= book.source %><br>
+                    <strong>ISBN:</strong> <%= book.isbn %><br>
+                  </div>
+                </div>
               <div class="book-details">
                 <strong>Description:</strong> <%= book.description %><br>
                 <strong>Source:</strong> <%= book.source %><br>
@@ -24,8 +30,6 @@
           </div>
         <% end %>
       </div>
+    <% else %>
+      <p>No books found in your library.</p>
     <% end %>
-  </div>
-<% else %>
-  <p>No books found in your library.</p>
-<% end %>

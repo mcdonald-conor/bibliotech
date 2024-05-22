@@ -82,8 +82,26 @@ class BooksController < ApplicationController
   end
 
   def fetch_cover_url(isbn)
-    url = URI("https://covers.openlibrary.org/b/isbn/#{isbn}-L.jpg")
-    response = Net::HTTP.get_response(url)
-    response.code == "200" && response.body.length > 0 ? url.to_s : "path/to/default/cover.jpg"
+    url = URI("https://covers.openlibrary.org/b/isbn/#{isbn}-M.jpg")
+    default_cover_url = "https://covers.openlibrary.org/b/isbn/978-0345391803-M.jpg"
+
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = (url.scheme == 'https')
+    http.open_timeout = 10 # seconds
+    http.read_timeout = 10 # seconds
+
+    request = Net::HTTP::Get.new(url)
+
+    begin
+      response = http.request(request)
+      Rails.logger.info("Fetching cover for ISBN #{isbn}, Response Code: #{response.code}")
+      response.code == "200" || response.code == "302" ? url.to_s : default_cover_url
+    rescue Net::OpenTimeout, Net::ReadTimeout => e
+      Rails.logger.error("Timeout error: #{e.message}")
+      "path/to/default/cover.jpg"
+    rescue => e
+      Rails.logger.error("HTTP request error: #{e.message}")
+      "path/to/default/cover.jpg"
+    end
   end
 end
