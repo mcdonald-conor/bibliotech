@@ -23,7 +23,7 @@
 
 .book-cover-vertical {
   width: 100px;
-  height: 150px;
+  height: 100%;
   object-fit: cover;
   margin-right: 20px;
 }
@@ -52,6 +52,9 @@
 
 .book-details-vertical {
   margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .book-details-vertical strong {
