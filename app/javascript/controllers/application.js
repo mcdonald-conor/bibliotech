@@ -1,4 +1,6 @@
 import { Application } from "@hotwired/stimulus"
+import BooksController from "./books_controller"
+Stimulus.register("books", BooksController)
 
 const application = Application.start()
 

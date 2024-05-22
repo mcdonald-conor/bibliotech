@@ -18,8 +18,15 @@
                     <strong>ISBN:</strong> <%= book.isbn %><br>
                   </div>
                 </div>
+              <div class="book-details">
+                <strong>Description:</strong> <%= book.description %><br>
+                <strong>Source:</strong> <%= book.source %><br>
+                <strong>ISBN:</strong> <%= book.isbn %><br>
               </div>
-            <% end %>
+            </div>
+            <span data-controller="books" data-action="click->books#remove">
+              <%= link_to "Delete", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </span>
           </div>
         <% end %>
       </div>
