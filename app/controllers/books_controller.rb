@@ -70,6 +70,11 @@ class BooksController < ApplicationController
     @books = current_user.books
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+  end
+
   private
 
   def book_params

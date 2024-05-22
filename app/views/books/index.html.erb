@@ -18,6 +18,9 @@
                 <strong>ISBN:</strong> <%= book.isbn %><br>
               </div>
             </div>
+            <span data-controller="books" data-action="click->books#remove">
+              <%= link_to "Delete", book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </span>
           </div>
         <% end %>
       </div>
