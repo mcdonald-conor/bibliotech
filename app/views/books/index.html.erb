@@ -28,11 +28,11 @@
             <div class="library-card-content">
               <div class="book-cover-container" data-controller="dropdown-menu">
                 <%= image_tag book.cover_url, alt: "Book cover", class: "book-cover" %>
-                <div class="hover-instruction"><i class="fas fa-mouse-pointer"></i>categorise</div>
+                <div class="hover-instruction"><i class="fas fa-arrow-up"></i>categorise</div>
                 <div class="dropdown-menu">
-                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="mark as read">mark as read</button>
-                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="add to currently reading">add to  currently reading</button>
-                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="favourite">favourite</button>
+                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="Read">mark as read</button>
+                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="Currently Reading">add to currently reading</button>
+                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="Favorite">favourite</button>
                 </div>
               </div>
               <div class="book-info">
@@ -53,7 +53,7 @@
                     <span class="star" data-value="4">&#9733;</span>
                     <span class="star" data-value="5">&#9733;</span>
                   </div>
-                  <%= link_to books_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'delete-link' do %>
+                  <%= link_to book_path(book), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'delete-link' do %>
                     <i class="fa fa-trash" aria-hidden="true" style="background: none; border: none; outline: none;"></i>
                   <% end %>
                 </div>
@@ -152,7 +152,7 @@
         } else {
           Swal.fire({
             title: 'Error',
-            text: 'You can only rate a book if it is marked as Read or Favorite.',
+            text: 'You can only rate a book if it is marked as read or in your favourites!',
             icon: 'error',
             confirmButtonText: 'OK'
           })
