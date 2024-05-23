@@ -2,12 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :books, only: [:index, :create, :destroy] do
+  resources :books, only: [:index, :create] do
     collection do
       post 'save'
-    end
-    member do
-      post 'update_category'
     end
   end
 
@@ -17,7 +14,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   get 'home', to: 'pages#home'
   get 'how_it_works', to: 'pages#how_it_works'
-  get 'library', to: 'books#index', as: 'library'
+  get 'library', to: 'books#index'
   get 'search_books', to: 'books#search'
-
 end
