@@ -15,3 +15,8 @@ import "bootstrap"
 // // Optionally register additional controllers
 // import ScrollerController from "./controllers/scroller_controller.js"
 // Stimulus.register("scroller", ScrollerController)
+//import { Application } from "@hotwired/stimulus"
+//window.Stimulus = Application.start()
+
+//import AlertController from "./controllers/alert_controller.js"
+//Stimulus.register("alert", AlertController)
