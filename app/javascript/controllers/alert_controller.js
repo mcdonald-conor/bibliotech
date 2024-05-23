@@ -11,12 +11,12 @@ export default class extends Controller {
 
     Swal.fire({
       title: "Creating your next-gen reading list now!",
-      confirmButtonColor: "#F674B4",
-      confirmButtonText: "Can't wait!",
       icon: "info",
-      padding: "10px",
-      background: "rgba(255,255,255)",
-      color:"rgb(0,0,0)"
+      //confirmButtonColor: "#F674B4",
+      //confirmButtonText: "Can't wait!",
+      //padding: "10px",
+      //background: "rgba(255,255,255)",
+      //color:"rgb(0,0,0)"
      });
 }
 }

@@ -56,6 +56,7 @@
                   <span class="star" data-value="4">&#9733;</span>
                   <span class="star" data-value="5">&#9733;</span>
                 </div>
+                <%= link_to "Delete", books_path(@book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
               </div>
             </div>
           <% end %>

@@ -66,6 +66,12 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to library_path, status: :see_other
+  end
+
   def index
     @books = current_user.books
   end
