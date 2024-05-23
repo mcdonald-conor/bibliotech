@@ -5,17 +5,16 @@
 }
 
 .filter-buttons button {
-  background-color:#F8C7D5; /* pink */
+  background-color: rgba(255, 255, 255, 0.5);
   border: 2px solid;
   color: #4b2336;
-  padding: 10px 20px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 5px;
 }
 
 .filter-buttons button:hover {
@@ -97,4 +96,14 @@
 }
 .hover-instruction i {
   margin-right: 5px; /* Space between arrow icon and text */
+}
+
+.book-rating-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-rating {
+  display: flex;
 }
