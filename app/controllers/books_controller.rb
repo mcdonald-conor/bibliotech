@@ -3,7 +3,7 @@ require "net/http"
 
 class BooksController < ApplicationController
   # before_action :authenticate_user!, only: [:save]
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :update_category]
 
   def search
     query = params[:query]
@@ -74,6 +74,16 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_back(fallback_location: library_path)
+  end
+
+  def update_category
+    @book = current_user.books.find(params[:id])
+
+    if @book.update(category: params[:category])
+      render json: { status: :ok, category: @book.category }
+    else
+      render json: { status: 500, error: @book.errors.full_messages.join(", ") }
+    end
   end
 
   private

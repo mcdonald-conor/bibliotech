@@ -1,0 +1,100 @@
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  background-color:#F8C7D5; /* pink */
+  border: 2px solid;
+  color: #4b2336;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-buttons button:hover {
+  background-color: #5f95d6;
+}
+
+.book-cover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.book-cover {
+  display: block;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  display: none; /* Initially hidden */
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-top: 5px;
+  min-width: 150px; /* Set a minimum width for the dropdown */
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  text-align: left;
+  color: #333;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+  color: #007BFF; /* Change to your preferred hover color */
+}
+
+.book-cover-container {
+  position: relative;
+}
+
+.book-cover-container:hover .dropdown-menu {
+  display: block; /* Show the dropdown menu on hover */
+}
+
+
+/* added css */
+.stars {
+  display: inline-block;
+}
+.star {
+  font-size: 2rem;
+  cursor: pointer;
+  color: lightgray;
+}
+.star.selected, .star.hover {
+  color: gold;
+}
+.book-rating {
+  margin-top: 10px;
+}
+.hover-instruction {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+  position: relative;
+  margin-right: 20px; /* Adjust this value to move right */
+}
+.hover-instruction i {
+  margin-right: 5px; /* Space between arrow icon and text */
+}

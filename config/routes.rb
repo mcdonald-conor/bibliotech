@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     collection do
       post 'save'
     end
+    member do
+      post 'update_category'
+    end
   end
 
   get "up" => "rails/health#show", as: :rails_health_check
