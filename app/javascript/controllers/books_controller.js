@@ -17,12 +17,13 @@ export default class extends Controller {
       event.preventDefault();
       const bookId = event.params.id;
       const bookElement = this.element.closest('.library-card');
-    
+
       fetch(`/books/${bookId}`, {
         method: "DELETE",
         headers: {
           "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Accept": 'application/json'
         }
       })
       .then(response => {
@@ -37,7 +38,7 @@ export default class extends Controller {
         });
       }
     }
-    
+
   add(event) {
     event.preventDefault()
     console.log("let's add the book to the library")
