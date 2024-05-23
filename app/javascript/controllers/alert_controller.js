@@ -10,7 +10,7 @@ export default class extends Controller {
     console.log("Hello")
 
     Swal.fire({
-      title: "Creating your next-gen reading list now!",
+      title: "Please wait while we generate your personalised reading list",
       icon: "info",
       //confirmButtonColor: "#F674B4",
       //confirmButtonText: "Can't wait!",
