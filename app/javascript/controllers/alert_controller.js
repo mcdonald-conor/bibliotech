@@ -9,6 +9,14 @@ export default class extends Controller {
     // Prevent the form to be submited after the submit button has been clicked
     console.log("Hello")
 
-    Swal.fire({title: "Creating your next-gen reading list now!", imageUrl: "../../assets/images/g0R5.gif", imageWidth: 400, imageHeight: 400, imageAlt: "Loading gif" });
+    Swal.fire({
+      title: "Creating your next-gen reading list now!",
+      confirmButtonColor: "#F674B4",
+      confirmButtonText: "Can't wait!",
+      icon: "info",
+      padding: "10px",
+      background: "rgba(255,255,255)",
+      color:"rgb(0,0,0)"
+     });
 }
 }

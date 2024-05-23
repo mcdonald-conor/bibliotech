@@ -2,7 +2,7 @@
   <div class="image-wrapper">
     <%= image_tag "homepage.png", alt: "Centered Image" %>
   </div>
-  <%= form_with url: search_books_path, method: :get, local: true, html: {data: {controller: "alert", action:"submit->alert#initSweetalert"}}, class: "search-form" do |form| %>
+  <%= form_with url: search_books_path, method: :get, local: true, html: {data: {controller: "alert", action:"submit->alert#initSweetalert"}},class: "search-form" do |form| %>
     <div class="search-wrapper">
       <%= text_field_tag :query, nil, placeholder: "enter the name of your favourite figure to find what inspired them", class: "search-input" %>
       <button type="submit" class="search-button" >
@@ -16,19 +16,19 @@
     Scroll down to read all about <strong>Bibliotech!</strong>
   </h1>
 </div>
-<div class="container", style="padding-bottom:5%;">
+<div class="container", style="padding-bottom:5%;"> 
     <div style="float:right;">
       <%= image_tag "https://illustrations.popsy.co/blue/question-mark.svg", alt:"Girl with question mark", class:"images"%>
     </div>
   <div>
   <div class="banner" style="background:#f9e8e3;">
-    <h1 id="how">how it works</h1>
+    <h1 id="how">How it works</h1>
     <div style="padding-top:20px;">
-      <strong>uncover new inspirations:</strong> who's your role model? Which public figure motivates you?<br>
-      <strong>discover new books:</strong> ever wondered what books inspired them?<br>
-      <strong>search & get recommendations:</strong> Type their name in the search bar above<br>
-      <strong>ai-powered reading list:</strong> Aggregated from thousands of sources, tailored for you!<br>
-      <strong>build your own library:</strong> Browse and add books to your personal collection!<br>
+      <p><strong>Uncover new Anspirations:</strong> Who's your role model? Which public figure motivates you?</p>
+      <p><strong>Discover new Books:</strong> Ever wondered what books inspired them?</p>
+      <p><strong>Search & Get Recommendations:</strong> Type their name in the search bar above.</p>
+      <p><strong>AI-Powered Reading List:</strong> Chat GPT AI generates a tailored reading list for you!</p>
+      <p><strong>Build your own Library:</strong> Browse and add books to your personal collection!</p>
     </div>
   </div>
 </div>
@@ -39,12 +39,13 @@
       </div>
     <div >
     <div class="banner" style="background:#f9e8e3;">
-      <h1 id="how">about us</h1>
+      <h1 id="about">About us</h1>
       <div style="padding-top:20px;">
-          <p>Traditional book platforms often rely on trends and popularity metrics,
+        <p>Traditional book platforms often rely on trends and popularity metrics,
             often lacking that personal touch and meaning. Many readers struggle to find books
-            that deeply resonate with them or reflect the interests of their icon<br>
-          <p><strong>Bibliotech</strong> offers a solution for avid readers seeking personalized and
+            that deeply resonate with them or reflect the interests of their icon.
+        </p>
+        <p><strong>Bibliotech</strong> offers a solution for avid readers seeking personalized and
             meaningful recommendations. Whether you admire celebrities, authors, influencers, politicians,
             or thought leaders, Bibliotech helps you explore the books that have shaped their worldviews.
             Discover the literature that inspires your role models and build a truly reflective reading list.
