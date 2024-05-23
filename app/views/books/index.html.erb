@@ -26,13 +26,13 @@
         <div class="library-card" data-category="none" data-original-category="none">
           <% if book.cover_url.present? %>
             <div class="library-card-content">
-              <div class="book-cover-container" data-controller="dropdown-menu">
+              <div class="book-cover-container">
                 <%= image_tag book.cover_url, alt: "Book cover", class: "book-cover" %>
                 <div class="hover-instruction"><i class="fas fa-arrow-up"></i>categorise</div>
                 <div class="dropdown-menu">
-                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="Read">mark as read</button>
-                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="Currently Reading">add to currently reading</button>
-                  <button data-action="click->dropdown-menu#updateCategory" data-dropdown-menu-target="dropdownButton" data-category="Favorite">favourite</button>
+                  <button data-category="Read">mark as read</button>
+                  <button data-category="Currently Reading">add to currently reading</button>
+                  <button data-category="Favorite">favourite</button>
                 </div>
               </div>
               <div class="book-info">

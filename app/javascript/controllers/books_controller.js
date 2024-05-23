@@ -13,8 +13,8 @@ export default class extends Controller {
   }
 
   remove(event) {
+    event.preventDefault();
     if (confirm("Are you sure you want to delete this book?")) {
-      event.preventDefault();
       const bookId = event.params.id;
       const bookElement = this.element.closest('.library-card');
 
