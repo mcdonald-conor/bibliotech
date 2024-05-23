@@ -12,6 +12,32 @@ export default class extends Controller {
     console.log('stimulus books controller connected')
   }
 
+  remove(event) {
+    if (confirm("Are you sure you want to delete this book?")) {
+      event.preventDefault();
+      const bookId = event.params.id;
+      const bookElement = this.element.closest('.library-card');
+    
+      fetch(`/books/${bookId}`, {
+        method: "DELETE",
+        headers: {
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          bookElement.remove(); // Remove element from UI on success
+          } else {
+            console.error("Failed to delete book");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+      }
+    }
+    
   add(event) {
     event.preventDefault()
     console.log("let's add the book to the library")
@@ -46,6 +72,7 @@ export default class extends Controller {
         }
       })
 
+  }
     // const bookId = this.data.get("bookId")
 
 
@@ -60,5 +87,5 @@ export default class extends Controller {
     //     // Handle error
     //     console.error("There was an error adding the book!", error)
     //   })
-  }
+
 }
