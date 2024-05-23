@@ -70,6 +70,12 @@ class BooksController < ApplicationController
     @books = current_user.books
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_back(fallback_location: library_path)
+  end
+
   private
 
   def book_params
