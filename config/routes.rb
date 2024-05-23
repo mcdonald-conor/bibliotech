@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   get 'home', to: 'pages#home'
   get 'how_it_works', to: 'pages#how_it_works'
-  get 'library', to: 'books#index'
+  get 'library', to: 'books#index', as: 'library'
   get 'search_books', to: 'books#search'
+
 end

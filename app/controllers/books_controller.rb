@@ -73,6 +73,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
+    redirect_back(fallback_location: library_path)
   end
 
   private
